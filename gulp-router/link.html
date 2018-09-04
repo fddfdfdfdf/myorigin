@@ -1,0 +1,157 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/common/echarts.min.js"></script>
+    <link rel="stylesheet"  href="/css/main.css" />
+	<style type="text/css">
+	p { 
+  width: 50px;
+  height: 50px;
+  background-color: teal;
+}
+
+.transformed{
+  transform: rotate3d(1, 0, 0, 60deg);
+  background-color: blue;
+}
+	</style>
+</head>
+<body>
+
+  <div id="picture" class="dd">
+      <!--<div id="app">-->
+          <!--<div class="loading">loading</div>-->
+          <!--<span></span>-->
+          <!--<span></span>-->
+          <!--<span></span>-->
+      <!--</div>-->
+  </div>
+  <div id="pictures" class="dd">
+      <!--<div id="app">-->
+      <!--<div class="loading">loading</div>-->
+      <!--<span></span>-->
+      <!--<span></span>-->
+      <!--<span></span>-->
+      <!--</div>-->
+  </div>
+  <div id="app" style="margin:0 auto;height: 200px;width: 200px">
+
+  </div>
+</body>
+<script type="text/javascript">
+    function makeTrueArr(data) {
+        var data = data.sort(function (a,b) {
+            return b.value-a.value;
+        })
+        var arr = [],
+            initCircle = 80;
+        for(var i=0,lens=data.length;i<=lens;i++){
+            if(i==lens){
+                arr.push({
+                    name:'',
+                    type:'pie',
+                    selectedMode: 'single',
+                    radius: [0, (initCircle-i*10)+'%'],
+                    hoverAnimation:false,
+                    label: {
+                        normal: {
+                            position: 'center',
+                            textStyle:{
+                                color:"#000000",
+                                fontSize:"12"
+                            }
+                        }
+                    },
+                    labelLine: {
+                        normal: {
+                            show: false
+                        }
+                    },
+                    tooltip: {
+                        trigger: 'none'
+                    },
+                    data:[
+                        {
+                            value:0,
+                            name:'妈妈网',
+                            itemStyle:{
+                                normal:{
+                                    color:"#ffffff",
+                                    opacity:0
+                                }
+                            }
+                        },
+
+                    ]
+                })
+            }else{
+                dataArr = [];
+                for(var j=0,lens=data.length;j<lens;j++){
+                    if(j==0){
+                        dataArr.push({
+                            value:data[i].value,
+                            name:data[i].name
+                        });
+                    }else{
+                        dataArr.unshift({
+                            value:data[j].value,
+                            name:data[j].name,
+                            itemStyle:{
+                                normal:{
+                                    color:"#ffffff",
+                                    opacity:0
+                                }
+                            },
+                            tooltip:{
+                                trigger:"none"
+                            }
+                        });
+                    }
+                }
+                arr.push({
+                    name:'',
+                    type:'pie',
+                    hoverAnimation:false,
+                    labelLine: {
+                        normal: {
+                            show: false
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show:false
+                        }
+                    },
+                    radius: [(initCircle-i*10-10)+'%', (initCircle-i*10)+'%'],
+                    legendHoverLink:false,
+                    data:dataArr
+                })
+            }
+        }
+        return arr;
+    }
+    echartsInit("app",{
+        status:"option",
+        option:{
+            tooltip: {
+                trigger: 'item',
+                formatter: "{b}: {c} ({d}%)"
+            },
+            legend: {
+                orient: 'vertical',
+                x: 'left',
+                data:['直达','邮件营销','联盟广告']
+            },
+            series: makeTrueArr([
+                {value:335, name:'直达'},
+                {value:679, name:'邮件营销'},
+                {value:1548, name:'联盟广告'}
+            ])
+        }
+    })
+</script>
+</html>

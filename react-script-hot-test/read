@@ -1,0 +1,21 @@
+https://segmentfault.com/q/1010000010969908/a-1020000011005602 //webpackout [name]和[id]相同
+
+代码里的[name]默认是id覆盖，如果你要给chunkFilename重新起名字，要使用webpack1的require.ensure()或webpack2以上的import()方法。
+
+webpack1:
+
+require.ensure(dependencies: String[], callback: function(require), chunkName: String)
+
+上面的chunkName对应的就是webpack里的chunkFilename里的[name]
+
+webpack2-3:
+
+const Foo = asyncComponent(() => import(/* webpackChunkName: "foo" */ "./foo"))
+
+<Route path="/xx" component={Foo} />
+
+上面的import()是webpack2以上版本的写法，注意/* webpackChunkName: "foo" */，这里对应的就是webpack里的chunkFilename里的[name]
+
+具体使用方法，给你两个参考链接吧：
+webpack1的require.ensure(): http://www.css88.com/doc/webp...
+webpack2-3的import(): https://webpack.js.org/api/mo...

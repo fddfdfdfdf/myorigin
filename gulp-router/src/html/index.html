@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>营养餐单</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,user-scalable=no,minimal-ui">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="Expires" content="-1">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="full-screen" content="none">
+    <meta name="browsermode" content="application">
+    <meta name="x5-fullscreen" content="false">
+    <link rel="stylesheet" href="/css/init_0a5da14092.css">
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+<script type="text/javascript">
+    var generateParenthesis = function(n) {
+        var list = [];
+        run("", n, 0);
+        return list;
+
+        // l 为剩余左括号数，r为剩余未匹配的右括号数目
+        function run( str, l,  r) {
+            if (l == 0 && r == 0) {
+                list.push(str);
+                return;
+            }
+            if (l > 0) {
+                var s = str + "(";
+                run(s, l-1, r+1);
+            }
+            if (r > 0) {
+                var s = str + ")";
+                run(s, l, r-1);
+            }
+        }
+
+    };
+    console.log(generateParenthesis(3))
+</script>
+</body>
+</html>

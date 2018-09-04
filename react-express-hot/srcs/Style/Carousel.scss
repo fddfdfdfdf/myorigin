@@ -1,0 +1,41 @@
+.banner_lists{
+    width: 7.5rem;
+    height: 3.66rem;
+    position: relative;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+   .banner_list{
+     position:absolute;
+     left: 0;
+     top: 0;
+     font-size: 0;
+     &>a{
+       display: inline-block;
+       height: auto;
+       &>img{
+         width: 100%;
+         height: auto;
+       }
+     }
+   }
+}
+.banner_btns{
+  width: 100%;
+  position: absolute;
+  bottom: .08rem;
+  left: 0;
+  font-size: 0;
+  text-align: center;
+  .banner_btn{
+    display:inline-block;
+    width: 4px;
+    margin-left: .2rem;
+    height: 4px;
+    border:1px solid #c5c5c5;
+    border-radius:3px;
+  }
+  .banner_btn_active{
+    background:#27e804;
+  }
+}

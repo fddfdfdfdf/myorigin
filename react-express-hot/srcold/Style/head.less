@@ -1,0 +1,84 @@
+.header{
+  width: 100%;
+  position: fixed;
+  height:.88rem;
+  line-height: .88rem;
+  left: 0;
+  top:0px;
+  z-index: 1;
+  &>.header_contain{
+    max-width:768px;
+    width:100%;
+    margin:0 auto;
+    &>div{
+      display: inline-block;
+      font-size:.26rem;
+      vertical-align:middle;
+    }
+    input{
+      font-size:.26rem;
+      opacity: .6;
+    }
+    .header_left{
+      font-size: 0;
+      margin-left: .3rem;
+      .head_img{
+        background: url("../img/head/cassfrsily.png") no-repeat;
+        background-size: cover;
+      }
+    }
+    .header_center{
+      margin-left: .3rem;
+      width: 4.68rem;
+      border-radius: .1rem;
+      height: .68rem;
+      line-height: .68rem;
+      font-size: 0;
+      opacity: .6;
+      background-color: #ffffff;
+      .head_img{
+        background: url("../img/head/ind-search.png") no-repeat 100% 100%;
+        background-size: cover;
+        margin-left: .2rem;
+      }
+      input{
+        height: .68rem;
+        line-height: .68rem;
+        vertical-align: middle;
+        color: #a2a6ad;
+        width: 3.6rem;
+        text-indent: .2rem;
+        background-color: #ffffff;
+      }
+    }
+    .header_right{
+       float: right;
+       font-size: 0;
+      .head_img_right0{
+        background: url("../img/head/tab-profile-normal.png") no-repeat 100% 100%;
+        background-size: cover;
+      }
+      .head_img_right1{
+        margin:0 .3rem;
+        background: url("../img/head/tab-cart-normal.png") no-repeat 100% 100%;
+        background-size: cover;
+      }
+    }
+    .head_img{
+      display: inline-block;
+      width: .44rem;
+      height:.44rem;
+      font-size: 0;
+      vertical-align: middle;
+    }
+  }
+}
+.lunbo{
+  animation: ma 20s ease-out infinite;
+  @keyframes ma {
+    0%,30% {        left: 0px;       }
+    35%,60% {       left: -7.5rem;    }
+    65%,80% {       left: -15rem;    }
+    85%,100% {       left: -22.5rem;    }
+  }
+}

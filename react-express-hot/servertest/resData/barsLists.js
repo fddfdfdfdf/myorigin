@@ -1,0 +1,25 @@
+module.exports = {
+    sucess:true,
+    data:[
+        {
+            url:"http://192.169.25.33:8000/img/lunbo/1.jpg",
+            title:'1'
+        },
+        {
+            url:"http://192.169.25.33:8000/img/lunbo/2.jpg",
+            title:'2'
+        },
+        {
+            url:"http://192.169.25.33:8000/img/lunbo/3.jpg",
+            title:'3'
+        },
+        {
+            url:"http://192.169.25.33:8000/img/lunbo/4.jpg",
+            title:'4'
+        },
+        {
+            url:"http://192.169.25.33:8000/img/lunbo/1.jpg",
+            title:'5'
+        },
+    ],
+}

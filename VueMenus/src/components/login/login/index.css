@@ -1,0 +1,11 @@
+.pageContain{
+  width:7.5rem;
+  max-width: 768px;
+  margin:0 auto;
+}
+.loginModule{
+  /*display:none;*/
+}
+.loginCaptcha{
+  /*display:none;*/
+}
